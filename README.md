@@ -8,9 +8,9 @@ Instructions for running this project locally:
     CREATE DATABASE traini8;
 4. In the application.properties file, update the MySQL username and password:
    
-    spring.datasource.username=root
+    spring.datasource.username=username
    
-    spring.datasource.password=yourpassword
+    spring.datasource.password=password
 5. To build and run the application using maven run the following commands:
    
     mvn clean install
