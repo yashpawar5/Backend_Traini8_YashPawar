@@ -1,4 +1,4 @@
-package com.Solvei8.Backend_Traini8_YashPawar.Exceptions;
+package com.Solvei8.Backend_Traini8_YashPawar.exceptions;
 
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;

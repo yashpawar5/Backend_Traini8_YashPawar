@@ -1,4 +1,4 @@
-package com.Solvei8.Backend_Traini8_YashPawar.DTOs;
+package com.Solvei8.Backend_Traini8_YashPawar.dtos;
 
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Email;

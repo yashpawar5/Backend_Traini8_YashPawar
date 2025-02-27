@@ -1,6 +1,6 @@
-package com.Solvei8.Backend_Traini8_YashPawar.Repositories;
+package com.Solvei8.Backend_Traini8_YashPawar.repositories;
 
-import com.Solvei8.Backend_Traini8_YashPawar.Models.TrainingCenter;
+import com.Solvei8.Backend_Traini8_YashPawar.models.TrainingCenter;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**

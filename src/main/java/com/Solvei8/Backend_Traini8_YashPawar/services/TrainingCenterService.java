@@ -1,12 +1,13 @@
-package com.Solvei8.Backend_Traini8_YashPawar.Services;
+package com.Solvei8.Backend_Traini8_YashPawar.services;
 
-import com.Solvei8.Backend_Traini8_YashPawar.Models.Address;
-import com.Solvei8.Backend_Traini8_YashPawar.Models.TrainingCenter;
-import com.Solvei8.Backend_Traini8_YashPawar.Repositories.AddressRepository;
-import com.Solvei8.Backend_Traini8_YashPawar.Repositories.TrainingCenterRepository;
-import com.Solvei8.Backend_Traini8_YashPawar.DTOs.AddTrainingCenterRequest;
-import com.Solvei8.Backend_Traini8_YashPawar.DTOs.AddressDTO;
-import com.Solvei8.Backend_Traini8_YashPawar.DTOs.TrainingCenterResponse;
+import com.Solvei8.Backend_Traini8_YashPawar.models.Address;
+import com.Solvei8.Backend_Traini8_YashPawar.models.TrainingCenter;
+import com.Solvei8.Backend_Traini8_YashPawar.repositories.AddressRepository;
+import com.Solvei8.Backend_Traini8_YashPawar.repositories.TrainingCenterRepository;
+import com.Solvei8.Backend_Traini8_YashPawar.dtos.AddTrainingCenterRequest;
+import com.Solvei8.Backend_Traini8_YashPawar.dtos.AddressDTO;
+import com.Solvei8.Backend_Traini8_YashPawar.dtos.TrainingCenterResponse;
+import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -34,6 +35,7 @@ public class TrainingCenterService {
      * @param trainingCenterRequest The request containing training center details.
      * @return The response containing the saved training center details.
      */
+    @Transactional
     public TrainingCenterResponse addTrainingCenter(AddTrainingCenterRequest trainingCenterRequest) {
         Address address = saveAddress(trainingCenterRequest);
         TrainingCenter trainingCenter = saveTrainingCenter(trainingCenterRequest, address);
@@ -58,7 +60,8 @@ public class TrainingCenterService {
      * @param trainingCenterRequest The request containing address details.
      * @return The saved Address entity.
      */
-    private Address saveAddress(AddTrainingCenterRequest trainingCenterRequest) {
+    @Transactional
+    protected Address saveAddress(AddTrainingCenterRequest trainingCenterRequest) {
         return addressRepository.save(
                 Address.builder()
                         .detailedAddress(trainingCenterRequest.getAddress().getDetailedAddress())
@@ -76,7 +79,8 @@ public class TrainingCenterService {
      * @param address The associated address entity.
      * @return The saved TrainingCenter entity.
      */
-    private TrainingCenter saveTrainingCenter(AddTrainingCenterRequest trainingCenterRequest, Address address) {
+    @Transactional
+    protected TrainingCenter saveTrainingCenter(AddTrainingCenterRequest trainingCenterRequest, Address address) {
         return trainingCenterRepository.save(
                 TrainingCenter.builder()
                         .centerName(trainingCenterRequest.getCenterName())

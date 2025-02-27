@@ -1,4 +1,4 @@
-package com.Solvei8.Backend_Traini8_YashPawar.Models;
+package com.Solvei8.Backend_Traini8_YashPawar.models;
 
 import jakarta.persistence.*;
 import lombok.*;
