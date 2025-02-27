@@ -7,7 +7,6 @@ import com.Solvei8.Backend_Traini8_YashPawar.Repositories.TrainingCenterReposito
 import com.Solvei8.Backend_Traini8_YashPawar.DTOs.AddTrainingCenterRequest;
 import com.Solvei8.Backend_Traini8_YashPawar.DTOs.AddressDTO;
 import com.Solvei8.Backend_Traini8_YashPawar.DTOs.TrainingCenterResponse;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,51 +15,54 @@ import java.util.stream.Collectors;
 @Service
 public class TrainingCenterService {
 
-    @Autowired
-    private AddressRepository addressRepository;
+    private final AddressRepository addressRepository;
+    private final TrainingCenterRepository trainingCenterRepository;
 
-    @Autowired
-    private TrainingCenterRepository trainingCenterRepository;
+    public TrainingCenterService(AddressRepository addressRepository, TrainingCenterRepository trainingCenterRepository) {
+        this.addressRepository = addressRepository;
+        this.trainingCenterRepository = trainingCenterRepository;
+    }
 
     public TrainingCenterResponse addTrainingCenter(AddTrainingCenterRequest trainingCenterRequest) {
-        Address address = Address.builder().detailedAddress(trainingCenterRequest.getAddress().getDetailedAddress())
-                .city(trainingCenterRequest.getAddress().getCity())
-                .state(trainingCenterRequest.getAddress().getState())
-                .pincode(trainingCenterRequest.getAddress().getPincode())
-                .build();
-        address = addressRepository.save(address);
-
-        TrainingCenter trainingCenter = TrainingCenter.builder().centerName(trainingCenterRequest.getCenterName())
-                .centerCode(trainingCenterRequest.getCenterCode())
-                .address(address)
-                .studentCapacity(trainingCenterRequest.getStudentCapacity())
-                .coursesOffered(trainingCenterRequest.getCoursesOffered())
-                .contactEmail(trainingCenterRequest.getContactEmail())
-                .contactPhone(trainingCenterRequest.getContactPhone())
-                .build();
-
-        trainingCenter = trainingCenterRepository.save(trainingCenter);
-
-        AddressDTO addressDTO = new AddressDTO(
-                trainingCenter.getAddress().getDetailedAddress(),
-                trainingCenter.getAddress().getCity(),
-                trainingCenter.getAddress().getState(),
-                trainingCenter.getAddress().getPincode()
-        );
-
-        return new TrainingCenterResponse(trainingCenter.getCenterName(),
-                trainingCenter.getCenterCode(),
-                addressDTO,
-                trainingCenter.getStudentCapacity(),
-                trainingCenter.getCoursesOffered(),
-                trainingCenter.getContactEmail(),
-                trainingCenter.getContactPhone()
-        );
+        Address address = saveAddress(trainingCenterRequest);
+        TrainingCenter trainingCenter = saveTrainingCenter(trainingCenterRequest, address);
+        return convertToResponse(trainingCenter);
     }
 
     public List<TrainingCenterResponse> getAllTrainingCenters() {
-        List<TrainingCenter> trainingCenters = trainingCenterRepository.findAll();
-        return trainingCenters.stream().map(trainingCenter -> new TrainingCenterResponse(
+        return trainingCenterRepository.findAll()
+                .stream()
+                .map(this::convertToResponse)
+                .collect(Collectors.toList());
+    }
+
+    private Address saveAddress(AddTrainingCenterRequest trainingCenterRequest) {
+        return addressRepository.save(
+                Address.builder()
+                        .detailedAddress(trainingCenterRequest.getAddress().getDetailedAddress())
+                        .city(trainingCenterRequest.getAddress().getCity())
+                        .state(trainingCenterRequest.getAddress().getState())
+                        .pincode(trainingCenterRequest.getAddress().getPincode())
+                        .build()
+        );
+    }
+
+    private TrainingCenter saveTrainingCenter(AddTrainingCenterRequest trainingCenterRequest, Address address) {
+        return trainingCenterRepository.save(
+                TrainingCenter.builder()
+                        .centerName(trainingCenterRequest.getCenterName())
+                        .centerCode(trainingCenterRequest.getCenterCode())
+                        .address(address)
+                        .studentCapacity(trainingCenterRequest.getStudentCapacity())
+                        .coursesOffered(trainingCenterRequest.getCoursesOffered())
+                        .contactEmail(trainingCenterRequest.getContactEmail())
+                        .contactPhone(trainingCenterRequest.getContactPhone())
+                        .build()
+        );
+    }
+
+    private TrainingCenterResponse convertToResponse(TrainingCenter trainingCenter) {
+        return new TrainingCenterResponse(
                 trainingCenter.getCenterName(),
                 trainingCenter.getCenterCode(),
                 new AddressDTO(
@@ -73,6 +75,6 @@ public class TrainingCenterService {
                 trainingCenter.getCoursesOffered(),
                 trainingCenter.getContactEmail(),
                 trainingCenter.getContactPhone()
-        )).collect(Collectors.toList());
+        );
     }
 }
