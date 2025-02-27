@@ -6,8 +6,9 @@ Instructions for running this project locally:
 4. In application.properties file change username and password for MySQL server:
    
     spring.datasource.username=root
+   
     spring.datasource.password=yourpassword
-5. To build and run the application using maven run the following commands:
+6. To build and run the application using maven run the following commands:
    
     mvn clean install
     mvn spring-boot:run
