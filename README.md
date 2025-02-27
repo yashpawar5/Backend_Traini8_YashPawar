@@ -1,6 +1,9 @@
 Instructions for running this project locally:
-1. Make sure MySQL server is installed on your system.
-2. Run the following query on MySQL workbench or using the terminal:
+1. Clone this repo using the following command:
+
+   git clone https://github.com/yashpawar5/Backend_Traini8_YashPawar.git
+2. Make sure MySQL server is installed on your system.
+3. Run the following query on MySQL workbench or using the terminal:
    
     CREATE DATABASE traini8;
 4. In application.properties file change username and password for MySQL server:
@@ -8,7 +11,7 @@ Instructions for running this project locally:
     spring.datasource.username=root
    
     spring.datasource.password=yourpassword
-6. To build and run the application using maven run the following commands:
+5. To build and run the application using maven run the following commands:
    
     mvn clean install
    
