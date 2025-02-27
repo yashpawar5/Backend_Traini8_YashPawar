@@ -6,7 +6,7 @@ Instructions for running this project locally:
 3. Run the following query on MySQL workbench or using the terminal:
    
     CREATE DATABASE traini8;
-4. In application.properties file change username and password for MySQL server:
+4. In the application.properties file, update the MySQL username and password:
    
     spring.datasource.username=root
    
