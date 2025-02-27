@@ -11,6 +11,7 @@ Instructions for running this project locally:
 6. To build and run the application using maven run the following commands:
    
     mvn clean install
+   
     mvn spring-boot:run
 
 
