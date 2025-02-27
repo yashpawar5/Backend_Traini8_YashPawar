@@ -1,7 +1,6 @@
 package com.Solvei8.Backend_Traini8_YashPawar.Models;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.*;
 import lombok.*;
 
 @Entity

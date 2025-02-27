@@ -1,6 +1,5 @@
 package com.Solvei8.Backend_Traini8_YashPawar.Controllers;
 
-import com.Solvei8.Backend_Traini8_YashPawar.Models.TrainingCenter;
 import com.Solvei8.Backend_Traini8_YashPawar.DTOs.AddTrainingCenterRequest;
 import com.Solvei8.Backend_Traini8_YashPawar.DTOs.TrainingCenterResponse;
 import com.Solvei8.Backend_Traini8_YashPawar.Services.TrainingCenterService;

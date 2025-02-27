@@ -3,7 +3,6 @@ package com.Solvei8.Backend_Traini8_YashPawar.DTOs;
 import jakarta.validation.constraints.*;
 import lombok.Data;
 
-import java.util.List;
 
 @Data
 public class AddressDTO {
