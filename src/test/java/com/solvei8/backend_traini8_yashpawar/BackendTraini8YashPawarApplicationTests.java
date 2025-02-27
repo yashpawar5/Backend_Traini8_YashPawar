@@ -1,4 +1,4 @@
-package com.Solvei8.Backend_Traini8_YashPawar;
+package com.solvei8.backend_traini8_yashpawar;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

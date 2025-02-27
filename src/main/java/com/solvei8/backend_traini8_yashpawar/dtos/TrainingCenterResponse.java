@@ -1,4 +1,4 @@
-package com.Solvei8.Backend_Traini8_YashPawar.dtos;
+package com.solvei8.backend_traini8_yashpawar.dtos;
 
 import lombok.Data;
 

@@ -1,12 +1,12 @@
-package com.Solvei8.Backend_Traini8_YashPawar.services;
+package com.solvei8.backend_traini8_yashpawar.services;
 
-import com.Solvei8.Backend_Traini8_YashPawar.models.Address;
-import com.Solvei8.Backend_Traini8_YashPawar.models.TrainingCenter;
-import com.Solvei8.Backend_Traini8_YashPawar.repositories.AddressRepository;
-import com.Solvei8.Backend_Traini8_YashPawar.repositories.TrainingCenterRepository;
-import com.Solvei8.Backend_Traini8_YashPawar.dtos.AddTrainingCenterRequest;
-import com.Solvei8.Backend_Traini8_YashPawar.dtos.AddressDTO;
-import com.Solvei8.Backend_Traini8_YashPawar.dtos.TrainingCenterResponse;
+import com.solvei8.backend_traini8_yashpawar.models.Address;
+import com.solvei8.backend_traini8_yashpawar.models.TrainingCenter;
+import com.solvei8.backend_traini8_yashpawar.repositories.AddressRepository;
+import com.solvei8.backend_traini8_yashpawar.repositories.TrainingCenterRepository;
+import com.solvei8.backend_traini8_yashpawar.dtos.AddTrainingCenterRequest;
+import com.solvei8.backend_traini8_yashpawar.dtos.AddressDTO;
+import com.solvei8.backend_traini8_yashpawar.dtos.TrainingCenterResponse;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 

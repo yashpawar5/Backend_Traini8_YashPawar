@@ -1,8 +1,8 @@
-package com.Solvei8.Backend_Traini8_YashPawar.controllers;
+package com.solvei8.backend_traini8_yashpawar.controllers;
 
-import com.Solvei8.Backend_Traini8_YashPawar.dtos.AddTrainingCenterRequest;
-import com.Solvei8.Backend_Traini8_YashPawar.dtos.TrainingCenterResponse;
-import com.Solvei8.Backend_Traini8_YashPawar.services.TrainingCenterService;
+import com.solvei8.backend_traini8_yashpawar.dtos.AddTrainingCenterRequest;
+import com.solvei8.backend_traini8_yashpawar.dtos.TrainingCenterResponse;
+import com.solvei8.backend_traini8_yashpawar.services.TrainingCenterService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
